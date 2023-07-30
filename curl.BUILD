@@ -165,6 +165,17 @@ cc_library(
             "HAVE_POLL_FINE",
             "HAVE_RAND_EGD",
         ],
+        "@platforms//os:linux": [
+            "USE_OPENSSL", "HAVE_BORINGSSL", "CURL_CA_PATH=\\\"/system/etc/security/cacerts\\\"",
+            "HAVE_CLOCK_GETTIME_MONOTONIC",
+            "HAVE_GETHOSTBYNAME_R", "HAVE_GETHOSTBYNAME_R_6",
+            "HAVE_GETIFADDRS", 
+            "HAVE_LINUX_TCP_H",
+            "HAVE_MEMRCHR",
+            "HAVE_NETINET_IN6_H",
+            "HAVE_POLL_FINE",
+            "HAVE_RAND_EGD",
+        ],
         # Merge these together if/when https://github.com/bazelbuild/platforms/issues/37 is resolved.
         "@platforms//os:macos" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
         "@platforms//os:ios" : ["USE_SECTRANSP", "HAVE_GETIFADDRS", "HAVE_MACH_ABSOLUTE_TIME", "HAVE_SYS_SOCKIO_H"],
