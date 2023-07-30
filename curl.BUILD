@@ -172,7 +172,7 @@ cc_library(
             "HAVE_GETIFADDRS", 
             "HAVE_LINUX_TCP_H",
             "HAVE_MEMRCHR",
-            "HAVE_NETINET_IN6_H",
+            # "HAVE_NETINET_IN6_H",
             "HAVE_POLL_FINE",
             "HAVE_RAND_EGD",
         ],
