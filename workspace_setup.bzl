@@ -61,3 +61,12 @@ def hedron_make_cc_https_easy():
         sha256 = "5908e5af8307f4e3b24a444e3ae09381c4365d56f05ec1f7db54161d2a94f89d",
         strip_prefix = "boringssl-e456a635da8b543f41a4b46e132b24ff1f549153",
     )
+
+    maybe(
+      http_archive,
+      name = "nghttp2",
+      build_file = "nghttp2.BUILD",
+      sha256 = "6e43a7a02ffa44ae9631da6217dfc5923b26c162f21cef7d75944c27db783018",
+      strip_prefix = "nghttp2-5e8904e327351ed5827f346f78b53aa909c721ec",
+      url = "https://github.com/nghttp2/nghttp2/archive/5e8904e327351ed5827f346f78b53aa909c721ec.zip",
+    )
