@@ -2,10 +2,7 @@ load("@rules_foreign_cc//foreign_cc:cmake.bzl", "cmake")
 
 filegroup(
     name = "all",
-    srcs = glob(
-        ["**"],
-        exclude = {},
-    ),
+    srcs = glob(["**"]),
     visibility = ["//visibility:public"],
 )
 
@@ -20,8 +17,6 @@ cmake(
             "CMAKE_CXX_COMPILER_FORCED": "on",
         },
     }),
-    cmake_files_dir = "$BUILD_TMPDIR/lib/CMakeFiles",
-    debug_cache_entries = {"ENABLE_DEBUG": "on"},
     defines = ["NGHTTP2_STATICLIB"],
     generate_args = ["-GNinja"],
     lib_source = "//:all",
@@ -32,4 +27,5 @@ cmake(
         "",
         "install",
     ],
+    visibility = ["//visibility:public"],
 )
