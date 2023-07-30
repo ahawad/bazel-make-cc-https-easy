@@ -12,7 +12,7 @@ alias(
             # e.g. sudo apt-get install libcurl4-openssl-dev
             # For more install instructions, see libcurl in  https://everything.curl.dev/get/linux
         # More generally, even for deps that aren't preinstalled, Linux, unlike most other platforms, usually has a functional package management system built in, so we should be linking to pre-installed libraries--and sharing them across the system--rather than bundling everything.
-        "@platforms//os:linux": ":system",
+        "@platforms//os:linux": ":source",
         # iOS: you might be concerned about cURL using BSD sockets, and old references in the docs to that not waking the cellular modem. That seems to not have been an issue since push notifications. See https://developer.apple.com/forums/thread/48996
         # Android:
             # Doesn't appear to bundle libcurl.
@@ -177,6 +177,7 @@ cc_library(
     ],
     linkopts = ["-lz"], # Android and Apple OSs bundle zlib. For Windows, see if we can reuse Boost's, but should have a flag to control whether it's bundled. It's less of a no brainer when the OS doesn't provide it. See also discussion in https://github.com/nelhage/rules_boost/issues/274
     deps = select({
+        "@platforms//os:linux" : ["@boringssl//:ssl"],
         "@platforms//os:android" : ["@boringssl//:ssl"],
         # Merge these together if/when https://github.com/bazelbuild/platforms/issues/37 is resolved.
         "@platforms//os:macos" : [":Apple"],
