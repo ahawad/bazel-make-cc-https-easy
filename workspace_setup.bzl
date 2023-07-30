@@ -65,7 +65,7 @@ def hedron_make_cc_https_easy():
     maybe(
       http_archive,
       name = "nghttp2",
-      build_file = "nghttp2.BUILD",
+      build_file = "@hedron_make_cc_https_easy//:nghttp2.BUILD",
       sha256 = "6e43a7a02ffa44ae9631da6217dfc5923b26c162f21cef7d75944c27db783018",
       strip_prefix = "nghttp2-5e8904e327351ed5827f346f78b53aa909c721ec",
       url = "https://github.com/nghttp2/nghttp2/archive/5e8904e327351ed5827f346f78b53aa909c721ec.zip",
